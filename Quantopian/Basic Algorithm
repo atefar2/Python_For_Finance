@@ -1,0 +1,15 @@
+def initialize(context):
+    context.tech = [sid(24), sid(1900), sid(16841)]
+    # context.aapl = sid(24) # assign stock data using id
+    # context.csco = sid(1900)
+    # context.amzn = sid(16841)
+    
+def handle_data(context, data):
+    if data.can_trade(sid(16841)):
+        order_target_percent(sid(16841), 1.0)
+    print(data.is_stale(sid(24)))# returns whether tha least traded date for this asset is different from the current algorithm time
+    
+    # order_target_percent(context.aapl, .27) # ordering Apple stocks for 27% of our money
+    # order_target_percent(context.csco, .20)
+    # order_target_percent(context.amzn, .53)
+    
